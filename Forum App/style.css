@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #037c55;
+    --light-green: #059e6d;
+    --blue: #3e5392;
+    --red: #b51818;
+}
+
+#app {
+    margin: 15px;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    height: 95vh;
+    font-family: 'Arimo', sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.title {
+    align-self: center;
+    font-size: 26px;
+    background-color: var(--green);
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.threads_list {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.threads_table {
+    border: 1px solid;
+    border-top: 0;
+}
+
+.threads_main_content {
+    height: 79vh;
+    overflow: auto;
+}
+
+.single_thread {
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.single_thread:last-child {
+    border-bottom: none;
+}
+
+.new_thread_input_fields {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    border-top: 0;
+}
+
+.new_thread_input_fields > button {
+    align-self: center;
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    background: var(--light-green);
+    color: white;
+    margin-bottom: 30px;
+}
+
+.single_input_field, .single_thread_field {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    margin-bottom: 1px;
+    padding: 10px 30px;
+}
+
+.single_input_field > label, .single_thread_field > label{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.single_input_field > input, 
+.single_input_field > select,
+.filter_options > select {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.thread_infos {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.names {
+    margin-top: 20px;
+}
+
+.categories {
+    margin-bottom: 25px;
+}
+
+.action_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+
+.action_buttons > button {
+    font-size: 15px;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.action_buttons .edit_thread {
+    background-color: var(--blue);
+}
+
+.action_buttons .delete_thread {
+    background-color: var(--red);
+}
+
+.filter_options {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: 0 auto 20px;
+}
+
+.filter_options > label {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.filter_options > select {
+    width: 200px;
+}
+
+.no_thread {
+    display: flex;
+    justify-content: center;
+}
+
+.no_thread > img {
+    width: 100%;
+    max-height: 570px;
+}

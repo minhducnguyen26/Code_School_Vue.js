@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <title>Forum App</title>
+</head>
+<body>
+    <div id="app">
+        <div class="threads_list">
+            <div class="filter_options">
+                <label>Select a Category:</label>
+                <select v-model="selected_category">
+                    <option v-for="category in categories" 
+                        :value="category">
+                        {{ category }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="threads_table">
+                <div class="title">{{ selected_category }} Threads</div>
+                <div class="threads_main_content">
+                    <div class="single_thread" 
+                        v-for="(thread, index) in sorted_threads">
+                        <div class="single_thread_infos_wrapper">
+                            <div class="single_thread_field names">
+                                <label for="name">Name:</label>
+                                <div class="thread_infos thread_name">{{ thread.name }}</div>
+                            </div>
+            
+                            <div class="single_thread_field">
+                                <label for="author">Author:</label>
+                                <div class="thread_infos thread_author">{{ thread.author }}</div>
+                            </div>
+                            
+                            <div class="single_thread_field">
+                                <label for="description">Description:</label>
+                                <div class="thread_infos thread_description">{{ thread.description }}</div>
+                            </div>
+                            
+                            <div class="single_thread_field categories">
+                                <label for="category">Category:</label>
+                                <div class="thread_infos thread_category">{{ thread.category }}</div>
+                            </div>
+                        </div>
+
+                        <div class="action_buttons">
+                            <button class="edit_thread">Edit</button>
+                            <button class="delete_thread" 
+                                @click="delete_one_thread(index)">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="no_thread"
+                        v-if="!sorted_threads.length">
+                        <img src="images/no_thread.jpg" alt="No Thread">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="new_thread_input_fields">
+            <div class="title">
+                Create a New Thread
+            </div>
+
+            <div class="single_input_field names">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Enter the thread's name"
+                    v-model="new_name">
+            </div>
+            
+            <div class="single_input_field">
+                <label for="author">Author:</label>
+                <input type="text" placeholder="Enter the author's name"
+                    v-model="new_author">
+            </div>
+            
+            <div class="single_input_field">
+                <label for="description">Description:</label>
+                <input type="text" placeholder="Enter the thread's description"
+                    v-model="new_description">
+            </div>
+            
+            <div class="single_input_field">
+                <label for="category">Category:</label>
+                <select name="categories" v-model="new_category">
+                    <option v-for="category in categories" :value="category">
+                        {{ category }}
+                    </option>
+                </select>
+            </div>
+
+            <button @click="create_new_thread">Submit</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

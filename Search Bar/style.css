@@ -1,0 +1,31 @@
+#app {
+    width: 500px;
+    margin: 50px auto 0;
+    border: 1px solid black;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 70%;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.article {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-bottom: 30px;
+}
+
+.article:last-child {
+    margin-bottom: 0;
+}
+
+.article > a {
+    display: flex;
+    align-items: center;
+}
