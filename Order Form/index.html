@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <title>Order Form</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="service in services" 
+             :class="{ active_service: service.active }"
+             class="service">
+            <div class="service_infos">
+                <div class="service_name">
+                    Service: {{ service.name }}
+                </div>
+    
+                <div class="service_price">
+                    Price: ${{ service.price }}
+                </div>
+            </div>
+
+            <button v-if="!service.active" 
+                    @click="toggle_active_on(service)">
+                Add service
+            </button>
+            <button v-if="service.active"
+                    @click="toggle_active_off(service)">
+                Remove service
+            </button>
+        </div>
+
+        <div class="checkout">
+            <br>
+            Tax: 20%
+            <br>
+            Total: {{ update_total_price }}
+            <p>Enter your credit card:</p>
+            <input type="text">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

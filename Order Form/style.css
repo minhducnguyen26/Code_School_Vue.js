@@ -1,0 +1,37 @@
+#app {
+    margin: 50px 0 0;
+    font-size: 20px;
+}
+
+.service {
+    display: grid;
+    margin: 0 auto 30px;
+    grid-template-columns: 2fr 1fr;
+    width: 400px;
+    padding: 1%;
+}
+
+.service_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.checkout > input {
+    font-size: 25px;
+}
+
+.active_service {
+    background-color: rebeccapurple;
+}
+
+.active_service > div {
+    color: white;
+}

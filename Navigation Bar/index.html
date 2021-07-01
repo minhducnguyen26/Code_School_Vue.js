@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <nav :class="active">
+            <a v-for="page in pages" :key="page"
+               @click="make_active(page)" href="#">{{ page }}</a>
+        </nav>
+
+        <!-- Home Page -->
+        <div v-if="current_page == 'Home'" class="current_page">
+            <p>This is the home page</p>
+            <span>Multiple message is: </span>
+            <p> {{ message }}</p>
+            <textarea v-model="message" cols="30" rows="10" placeholder="Add multiple lines"></textarea>
+        </div>
+    
+        <!-- Projects Page -->
+        <div v-if="current_page == 'Projects'" class="current_page">
+            <p>This is the projects page</p>
+            <div class="inputs">
+                <input v-model="checked_names" type="checkbox" id="Jack" value="Jack">
+                <label for="Jack">Jack</label>
+                <input v-model="checked_names" type="checkbox" id="John" value="John">
+                <label for="John">John</label>
+                <input v-model="checked_names" type="checkbox" id="Sally" value="Sally">
+                <label for="Sally">Sally</label>
+            </div>
+            <span>Checked Names: {{ checked_names }}</span>
+        </div>
+    
+        <!-- Services Page -->
+        <div v-if="current_page == 'Services'" class="current_page">
+            <p>This is the services page</p>
+            <div class="inputs">
+                <input type="radio" id="One" value="One" v-model="picked">
+                <label for="One">One</label>
+                <input type="radio" id="Two" value="Two" v-model="picked">
+                <label for="Two">Two</label>
+            </div>
+            <span>Picked: {{ picked }}</span>
+        </div>
+    
+        <!-- Contact Page -->
+        <div v-if="current_page == 'Contact'" class="current_page">
+            <p>This is the contact page</p>
+            <select v-model="selected">
+                <option disabled value="">Please select one</option>
+                <option v-for="option in options" 
+                        v-model="selected">
+                    {{ option }}
+                </option>
+            </select>
+            <span> Selected: {{ selected }}</span>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
