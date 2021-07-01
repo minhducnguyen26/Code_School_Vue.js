@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fetch</title>
+</head>
+<body>
+    <div v-bind:class="red_background" id="app">
+        <button v-if="show"  v-on:click="fetch_url()">It's fetching time!</button>
+        <button v-if="show"  v-on:click="hide_fetch_button()">Hide fetch button</button>
+        <button v-if="!show" v-on:click="show_fetch_button()">Show fetch button</button>
+        <br><br><br>
+        <button v-on:click="get_scores()">Show scores</button>
+        <button v-on:click="get_names()">Show Names</button>
+        <br><br><br>
+        <button v-if="!color_change" v-on:click="change_background_color()">Change background color</button>
+        <button v-if="color_change" v-on:click="reverse_background_color()">Reverse background color</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
