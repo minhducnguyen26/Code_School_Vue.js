@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Review Vue</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ greeting }}</h1>
+
+        <div v-bind:class="compute_class"
+             v-on:click="click()"
+             v-on:mouseover="mouse_over()"
+             v-on:mouseleave="mouse_leave()">
+            <p>I have been clicked: {{ clicked }}</p>
+            <p>I am being hover: {{ hovering }}</p>
+        </div>
+
+        <div v-bind:class="position_class">
+            <p>I am on the {{ position }} side</p>
+        </div>
+
+        <div v-for="name in names">
+            {{ name }}
+        </div>
+
+        <!--Game starts here-->
+        <div class="board">
+            <div class="piece" v-bind:style="piece_style"></div>
+            <div class="goal"  v-bind:style="goal_style"></div>
+        </div>
+        
+        <div v-if="victory" id="win">You Win!</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

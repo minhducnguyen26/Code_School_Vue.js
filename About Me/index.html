@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>About Me</title>
+</head>
+<body>
+    <div id="app">
+        <h1> {{ greeting }}</h1>
+        <br>
+        <div class="personal_infos"></div>
+            <p>Name: {{ name }}</p>
+            
+            <div class="job">
+                <p>Job: {{ job }}</p>
+            </div>
+
+            <div class="hobby">
+                <p>Hobby: {{ hobby }}</p>
+            </div>
+        </div>
+        <br>
+        <div class="change_name">
+            <p>I'm gonna change my name now (again)</p>
+            <input type="text" v-model="what_im_typing" v-on:keydown.enter="change_name(what_im_typing)">
+            <button v-on:click="change_name(what_im_typing)">Change Name</button>
+        </div>
+
+        <p>{{ what_im_typing }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
