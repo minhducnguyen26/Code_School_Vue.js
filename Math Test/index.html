@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Math Test</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Math Test</h1>
+        <br>
+
+        <nav>
+            <p v-on:click='page = "test"'>Test</p>
+            <p v-on:click='page = "results"'>Results</p>
+        </nav>
+
+        <div v-if="page == 'test'">
+            <h2>Problem Section:</h2>
+
+            <p>Problem {{ problem_num }}</p>
+            <p>{{ num_one }} + {{ num_two }} = {{ the_answer }}</p>
+            <p> Guess
+                <input type="text" v-model="answer">
+            </p>
+
+            <br>
+
+            <button v-if="!submitted" v-on:click="check_answer()">Check Answer</button>
+            <br><br>
+
+            <button v-on:click="generate_random_numbers()">Next Question</button>
+            <br><br>
+
+            <p>{{ feedback }}</p>
+            <br>
+        </div>
+
+        <div v-if="page == 'results'">
+            <h2>Problem Section:</h2>
+
+            <p>You've gotten {{ results }} / {{ answered }} correct.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

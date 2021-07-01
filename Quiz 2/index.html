@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz 2</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ greeting }}</h1>
+
+        <nav>
+            <p v-on:click="page = 'questions'">Questions</p>
+            <p v-on:click="page = 'results'">Results</p>
+        </nav>
+
+        <div v-if="page == 'questions'">
+            <h2>Questionnaire:</h2>
+
+            <p v-for="question in questions">
+                {{ question.question }}
+                <br>
+
+                <input value="option_1" type="radio" v-model="question.choice">
+                {{ question.option_1 }}
+                
+                <br>
+
+                <input value="option_2" type="radio" v-model="question.choice">
+                {{ question.option_2 }}
+
+                <br>
+                
+                <input value="option_21" type="radio" v-model="question.choice">
+                {{ question.option_3}}
+                <br>
+            </p>
+
+            <button v-on:click="answer()">Submit</button>
+        </div>
+
+        <div v-if="page == 'results'">
+            <h2>Test Results</h2>
+            <p>You should think about living in {{ state }}</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

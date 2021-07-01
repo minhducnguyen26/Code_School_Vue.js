@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Checkout Skateboard</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Checkout: Skateboard</h1>
+        
+        <div class="choose_deck">
+            <h3>Pick a deck</h3>
+            
+            <!--Input 3 or 4 type="radio" v-model="deck_type"-->
+            <input value="oak"   type="radio" v-model="deck_type"> Oak
+            <input value="pine"  type="radio" v-model="deck_type"> Pine
+            <input value="maple" type="radio" v-model="deck_type"> Maple
+            <br><br>
+
+            <!--Show board images-->
+            <img v-bind:src="computed_deck_image" alt="Skateboard Decks">
+        </div>
+
+        <br><br>
+
+        <div class="choose_wheel">
+            <h3>Pick a wheel:</h3>
+
+            <!--Input 3 or 4 type="radio" v-model="wheel_type"-->
+            <input value="red"    type="radio" v-model="wheel_type"> Red
+            <input value="green"  type="radio" v-model="wheel_type"> Green
+            <input value="purple" type="radio" v-model="wheel_type"> Purple
+            <br><br>
+
+            <!--Show wheel images-->
+            <img v-bind:src="computed_wheel_image" alt="Skateboard Wheels">
+        </div>
+
+        <br><br>
+
+        <div class="choose_art">
+            <h3>Pick an art:</h3>
+
+            <!--Input 3 or 4 type="radio" v-model="wheel_type"-->
+            <input value="pink"    type="radio" v-model="art_type"> Pink
+            <input value="bird"    type="radio" v-model="art_type"> Bird
+            <input value="peanuts" type="radio" v-model="art_type"> Peanuts
+            <br><br>
+
+            <!--Show wheel images-->
+            <img class="art_images" v-bind:src="computed_art_image" alt="Skateboard Arts">
+        </div>
+
+        <br><br>
+
+        <div class="pricing">
+            Cost : ${{ cost }}
+            <br>
+            Tax  : ${{ tax }}
+            <br>
+            Total: {{ computed_cost }}
+        </div>
+
+        <br><br>
+
+        <button v-on:click="purchase()">Buy Now</button>
+
+        <br><br>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
